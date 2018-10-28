@@ -46,14 +46,17 @@ def get_train_data():
             y_train.append(int(row['is_leave']))
         x_train = np.array(x_train)
         y_train = np.array(y_train)
-    return list(x_train, y_train)
+        dic = {}
+        dic['x_train'] = x_train
+        dic['y_train'] = y_train
+    return dic
 
 
 # train
 def train():
     train_data = get_train_data()
-    x_train = train_data[0]
-    y_train = train_data[1]
+    x_train = train_data['x_train']
+    y_train = train_data['y_train']
     model = Sequential()
     model.add(Dense(64, input_dim=73, activation='relu'))
     model.add(Dropout(0.5))

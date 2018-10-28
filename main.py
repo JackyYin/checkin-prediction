@@ -1,16 +1,16 @@
 import flask
 import numpy as np
 from run import predict as run_predict
-from run import get_staff_dict
+from run import get_staff_dict, train
 from flask import request, jsonify
 from keras import utils as np_utils
 
 app = flask.Flask(__name__)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/train", methods=["GET"])
 def get():
-    return "Hello"
+    return jsonify(score=train()), 200
 
 
 @app.route("/predict", methods=["POST"])

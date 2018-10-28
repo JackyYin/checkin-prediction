@@ -1,7 +1,7 @@
 version: "3.5"
 
 services:
-  dish_recog:
+  prediction:
     image: checkin-prediction
     container_name: checkin_prediction
     restart: always

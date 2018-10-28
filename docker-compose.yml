@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+  dish_recog:
+    image: checkin-prediction
+    container_name: checkin_prediction
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - "5000:80"
+    env_file:
+      - .env
+
+networks:
+  default:
+    external:
+      name: checkin_backend
+
+
